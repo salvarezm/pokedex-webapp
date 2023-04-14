@@ -1,1 +1,1 @@
-export * from './base-points';
+export * from "./base-points";

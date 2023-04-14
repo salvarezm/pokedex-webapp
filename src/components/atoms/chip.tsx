@@ -1,8 +1,7 @@
-
 interface ChipProps {
-    label: string;
+  label: string;
 }
 
-export const Chip = ({label}:ChipProps) => {
-    return <></>;
-}
+export const Chip = ({ label }: ChipProps) => {
+  return <></>;
+};

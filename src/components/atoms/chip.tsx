@@ -2,6 +2,6 @@ interface ChipProps {
   label: string;
 }
 
-export const Chip = ({ label }: ChipProps) => {
+export function Chip({ label }: ChipProps) {
   return <></>;
-};
+}

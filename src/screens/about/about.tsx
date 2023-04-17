@@ -1,3 +1,3 @@
-export const About = () => {
+export function About() {
   return <></>;
-};
+}

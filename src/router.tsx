@@ -1,19 +1,19 @@
-import { createBrowserRouter } from "react-router-dom";
-import { About } from "./screens/about/about";
-import { Dashboard } from "./screens/dashboard/dashboard";
-import { Pokemon } from "./screens/pokemon/pokemon";
+import { createBrowserRouter } from 'react-router-dom';
+import { About } from './screens/about/about';
+import { Dashboard } from './screens/dashboard/dashboard';
+import { Pokemon } from './screens/pokemon/pokemon';
 
 export const router = createBrowserRouter([
   {
-    path: "/",
+    path: '/',
     element: <Dashboard />,
   },
   {
-    path: "/pokemon/:pokemonName",
+    path: '/pokemon/:pokemonName',
     element: <Pokemon />,
   },
   {
-    path: "/about",
+    path: '/about',
     element: <About />,
   },
 ]);

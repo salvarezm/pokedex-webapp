@@ -1,24 +1,15 @@
 /** @jsxImportSource theme-ui */
-import { getColor, lighten } from '@theme-ui/color';
-import { useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import { getColor } from '@theme-ui/color';
 import { useParams, useNavigate } from 'react-router-dom';
 import { MdCatchingPokemon } from 'react-icons/md';
-import {
-  Badge,
-  Box,
-  Button,
-  Card,
-  Flex,
-  Link,
-  Text,
-  ThemeUICSSObject,
-} from 'theme-ui';
+import { Badge, Button, Card, Flex, Link, Text } from 'theme-ui';
 import {
   useGetEvolutionChainQuery,
   useGetPokemonByNameQuery,
   useGetPokemonSpeciesQuery,
 } from '../../services/pokemon-api';
-import { theme } from '../../shared/theme';
+import theme from '../../shared/theme/theme';
 import { formatPokemonNumber } from '../../shared/util';
 import { BasePoints } from './components/base-points';
 import { flatPokemonFlavorText } from './util';
@@ -54,23 +45,23 @@ export function Pokemon() {
   });
 
   useEffect(() => {
-    const characteristics: Characteristic[] = [];
-    characteristics.push({
+    const item: Characteristic[] = [];
+    item.push({
       name: 'Weight',
       value: data?.weight,
     });
 
-    characteristics.push({
+    item.push({
       name: 'Height',
       value: data?.height,
     });
 
-    characteristics.push({
+    item.push({
       name: 'Base experience',
       value: data?.base_experience,
     });
 
-    setCharacteristics(characteristics);
+    setCharacteristics(item);
   }, [data]);
 
   return (
@@ -85,6 +76,7 @@ export function Pokemon() {
         <Flex sx={{ flexDirection: 'column', width: '100%', gap: '16px' }}>
           <Card variant="pokeImg">
             <img
+              alt={`${pokemonName}-img`}
               width="100%"
               src={`https://assets.pokemon.com/assets/cms2/img/pokedex/full/${formatPokemonNumber(
                 data?.id,
@@ -95,8 +87,8 @@ export function Pokemon() {
         </Flex>
         {/* second section */}
         <Flex sx={{ flexDirection: 'column', width: '100%', gap: '16px' }}>
-          {speciesData?.flavor_text_entries
-            && flatPokemonFlavorText(speciesData.flavor_text_entries).map(
+          {speciesData?.flavor_text_entries &&
+            flatPokemonFlavorText(speciesData.flavor_text_entries).map(
               (flavorText, index) => (
                 <Card
                   variant="standarCard"

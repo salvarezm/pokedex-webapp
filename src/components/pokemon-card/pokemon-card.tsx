@@ -1,6 +1,5 @@
-import {
-  Badge, Box, Card, Flex, Text, ThemeProvider,
-} from 'theme-ui';
+import React from 'react';
+import { Badge, Box, Card, Flex, Text, ThemeProvider } from 'theme-ui';
 import { lighten } from '@theme-ui/color';
 import { useNavigate } from 'react-router-dom';
 import { useGetPokemonByNameQuery } from '../../services/pokemon-api';
@@ -17,9 +16,10 @@ export function PokemonCard({ pokemon: { name } }: PokemonCardProps) {
     navigate(`/pokemon/${name}`);
   };
 
-  const idImage = data?.id && data?.id.toString().length <= 3
-    ? (`000${data?.id}`).slice(-3)
-    : data?.id;
+  const idImage =
+    data?.id && data?.id.toString().length <= 3
+      ? `000${data?.id}`.slice(-3)
+      : data?.id;
 
   return (
     <Card key={`${name}`} variant="pokecard" onClick={handlePokemonClick}>

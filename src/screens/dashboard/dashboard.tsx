@@ -1,7 +1,6 @@
+import React from 'react';
 import { useCallback, useEffect, useState } from 'react';
-import {
-  Button, Card, Flex, Link, Spinner, Text,
-} from 'theme-ui';
+import { Button, Card, Flex, Link, Spinner, Text } from 'theme-ui';
 import { useGetPokemonsByQuery } from '../../services/pokemon-api';
 import { PokemonCard } from '../../components/pokemon-card/pokemon-card';
 
@@ -13,10 +12,12 @@ export function Dashboard() {
 
   const scrollPokemonDashboard = useCallback(() => {
     // Get the distance scrolled from the top of the page
-    const scrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+    const scrollTop =
+      document.documentElement.scrollTop || document.body.scrollTop;
 
     // Get the total height of the page
-    const scrollHeight = document.documentElement.scrollHeight || document.body.scrollHeight;
+    const scrollHeight =
+      document.documentElement.scrollHeight || document.body.scrollHeight;
 
     // If the user has scrolled to the bottom of the page
     if (scrollTop + window.innerHeight >= scrollHeight) {
@@ -31,9 +32,12 @@ export function Dashboard() {
     window.addEventListener('scroll', scrollPokemonDashboard);
   }, [setLimit, scrollPokemonDashboard]);
 
-  useEffect(() => () => {
-    window.removeEventListener('scroll', scrollPokemonDashboard, false);
-  }, []);
+  useEffect(
+    () => () => {
+      window.removeEventListener('scroll', scrollPokemonDashboard, false);
+    },
+    [],
+  );
 
   return (
     <>
@@ -48,7 +52,9 @@ export function Dashboard() {
           flexWrap: 'wrap',
         }}
       >
-        {data?.results.map((pokemon) => <PokemonCard key={pokemon.name} pokemon={pokemon} />)}
+        {data?.results.map((pokemon) => (
+          <PokemonCard key={pokemon.name} pokemon={pokemon} />
+        ))}
         <Flex>
           {limit === POKEMON_BACH && (
             <Button onClick={loadMore}>Cargar mas pokemon</Button>

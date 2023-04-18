@@ -1,8 +1,7 @@
 /** @jsxImportSource theme-ui */
+import React from 'react';
 import { getColor, lighten } from '@theme-ui/color';
-import {
-  Box, Card, Text, Flex, ThemeUICSSObject,
-} from 'theme-ui';
+import { Box, Card, Text, Flex, ThemeUICSSObject } from 'theme-ui';
 import { theme } from '../../../../shared/theme';
 
 interface BasePointsProps {

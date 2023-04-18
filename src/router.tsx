@@ -1,3 +1,4 @@
+import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import { About } from './screens/about/about';
 import { Dashboard } from './screens/dashboard/dashboard';

@@ -1,6 +1,6 @@
 import React from 'react';
 import { useCallback, useEffect, useState } from 'react';
-import { Button, Card, Flex, Link, Spinner, Text } from 'theme-ui';
+import { Button, Flex, Spinner, Text } from 'theme-ui';
 import { useGetPokemonsByQuery } from '../../services/pokemon-api';
 import { PokemonCard } from '../../components/pokemon-card/pokemon-card';
 

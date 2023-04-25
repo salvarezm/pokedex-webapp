@@ -1,3 +1,4 @@
+import React from 'react';
 import { Flex } from 'theme-ui';
 import { MdArrowForwardIos } from 'react-icons/md';
 import { PokemonCard } from '../../../../components/pokemon-card/pokemon-card';
@@ -28,7 +29,7 @@ export function EvolutionChain({ chain }: EvolutionChainProps) {
   return (
     <Flex sx={{ justifyContent: 'center', width: '100%' }}>
       {pokemonChain.map((pokemon, index) => (
-        <Flex sx={{ alignItems: 'center' }}>
+        <Flex key={pokemon} sx={{ alignItems: 'center' }}>
           <PokemonCard pokemon={{ name: pokemon }} />
           {index < pokemonChain.length - 1 && <MdArrowForwardIos size={52} />}
         </Flex>

@@ -1,7 +1,7 @@
 /** @jsxImportSource theme-ui */
 import React from 'react';
 import { getColor, lighten } from '@theme-ui/color';
-import { Box, Card, Text, Flex, ThemeUICSSObject } from 'theme-ui';
+import {Card, Text, Flex, ThemeUICSSObject } from 'theme-ui';
 import { theme } from '../../../../shared/theme';
 
 interface BasePointsProps {
@@ -42,7 +42,7 @@ export function BasePoints({ stats = [] }: BasePointsProps) {
             justifyContent: 'space-between',
           }}
         >
-          {stats?.map((stat, index) => (
+          {stats?.map((stat) => (
             <Flex key={stat.stat.name} sx={{ flexDirection: 'column' }}>
               <ul
                 style={{

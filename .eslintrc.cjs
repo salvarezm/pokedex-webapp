@@ -1,8 +1,5 @@
 module.exports = {
   extends: [
-    'airbnb',
-    'airbnb-typescript',
-    'airbnb/hooks',
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
   ],
@@ -15,5 +12,6 @@ module.exports = {
   rules: {
     'import/prefer-default-export': 'off',
     'object-curly-newline': 'off',
+    '@typescript-eslint/no-unsafe-assignment': 'off',
   },
 };

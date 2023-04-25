@@ -4,7 +4,7 @@ import './index.css';
 import { RouterProvider } from 'react-router-dom';
 import { Box, ThemeProvider } from 'theme-ui';
 import { Provider } from 'react-redux';
-import { theme } from './shared/theme';
+import { theme } from './shared/theme/theme';
 import { store } from './store';
 import { router } from './router';
 

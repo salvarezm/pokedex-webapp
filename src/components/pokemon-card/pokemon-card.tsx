@@ -1,6 +1,5 @@
-import React from 'react';
-import { Badge, Box, Card, Flex, Text, ThemeProvider } from 'theme-ui';
-import { lighten } from '@theme-ui/color';
+import React, { useState, useEffect } from 'react';
+import { Badge, Box, Card, Flex, Text } from 'theme-ui';
 import { useNavigate } from 'react-router-dom';
 import { useGetPokemonByNameQuery } from '../../services/pokemon-api';
 
@@ -10,16 +9,24 @@ export interface PokemonCardProps {
 
 export function PokemonCard({ pokemon: { name } }: PokemonCardProps) {
   const { data } = useGetPokemonByNameQuery(name);
+  const [idImage, setIdImage] = useState('');
+
   const navigate = useNavigate();
 
   const handlePokemonClick = () => {
     navigate(`/pokemon/${name}`);
   };
 
-  const idImage =
-    data?.id && data?.id.toString().length <= 3
-      ? `000${data?.id}`.slice(-3)
-      : data?.id;
+  useEffect(() => {
+    if (data) {
+      const imgCode =
+        data.id && data.id.toString().length <= 3
+          ? `000${data?.id}`.slice(-3)
+          : data?.id.toString();
+
+      setIdImage(imgCode);
+    }
+  }, [data]);
 
   return (
     <Card key={`${name}`} variant="pokecard" onClick={handlePokemonClick}>

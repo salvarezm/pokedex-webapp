@@ -4,7 +4,7 @@ import { lighten } from '@theme-ui/color';
 
 const fadeIn = keyframes({ from: { top: '-10px' }, to: { top: 0 } });
 
-const theme: Theme = {
+export const theme: Theme = {
   styles: {
     a: {
       cursor: 'pointer',
@@ -124,5 +124,3 @@ const theme: Theme = {
     },
   },
 };
-
-export default theme;

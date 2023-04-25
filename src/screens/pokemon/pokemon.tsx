@@ -9,7 +9,7 @@ import {
   useGetPokemonByNameQuery,
   useGetPokemonSpeciesQuery,
 } from '../../services/pokemon-api';
-import theme from '../../shared/theme/theme';
+import { theme } from '../../shared/theme/theme';
 import { formatPokemonNumber } from '../../shared/util';
 import { BasePoints } from './components/base-points';
 import { flatPokemonFlavorText } from './util';
@@ -120,7 +120,7 @@ export function Pokemon() {
             <Flex
               sx={{ flexDirection: 'row', width: '100%', flexWrap: 'wrap' }}
             >
-              {characteristics.map((characteristic, index) => (
+              {characteristics.map((characteristic) => (
                 <Flex
                   key={characteristic.name}
                   sx={{ width: '50%', flexDirection: 'column', gap: '8px' }}
@@ -142,7 +142,7 @@ export function Pokemon() {
           </Card>
           <Text variant="labelHeading">Type:</Text>
           <Flex sx={{ gap: '8px' }}>
-            {data?.types.map((type, index) => (
+            {data?.types.map((type) => (
               <Badge
                 sx={{ fontSize: 2, p: 2 }}
                 variant={type.type.name}
@@ -154,7 +154,7 @@ export function Pokemon() {
           </Flex>
           <Text variant="labelHeading">Moves:</Text>
           <Flex sx={{ flexWrap: 'wrap', gap: 2 }}>
-            {data?.moves.slice(0, 50).map((move, index) => (
+            {data?.moves.slice(0, 50).map((move) => (
               <Badge
                 sx={{ fontSize: 1, p: 1 }}
                 variant="primary"

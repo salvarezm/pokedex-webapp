@@ -1,5 +1,5 @@
 import { keyframes } from '@emotion/react';
-import { Theme, ThemeUICSSObject } from 'theme-ui';
+import { Theme } from 'theme-ui';
 
 const fadeIn = keyframes({ from: { top: '-10px' }, to: { top: 0 } });
 

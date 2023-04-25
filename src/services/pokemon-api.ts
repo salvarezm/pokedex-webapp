@@ -15,7 +15,7 @@ export const pokemonApi = createApi({
     getPokemonByName: builder.query<Pokemon, string>({
       query: (name) => `pokemon/${name}`,
     }),
-    getPokemonSpecies: builder.query<PokemonSpecies, number | undefined>({
+    getPokemonSpecies: builder.query<PokemonSpecies, number>({
       query: (id) => `pokemon-species/${id}`,
     }),
     getEvolutionChain: builder.query<EvolutionChain, string>({

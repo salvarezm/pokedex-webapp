@@ -15,6 +15,7 @@ export function PokemonCard({ pokemon: { name } }: PokemonCardProps) {
 
   const handlePokemonClick = () => {
     navigate(`/pokemon/${name}`);
+    window.scrollTo(0, 0);
   };
 
   useEffect(() => {

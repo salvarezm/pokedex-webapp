@@ -17,6 +17,7 @@ export const theme: Theme = {
   },
   fontSizes: [12, 14, 16, 18, 20, 24, 28, 34, 49, 63, 77, 84],
   sizes: [8, 16, 32, 40, 48],
+  zIndices: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
   fontWeights: {
     heading: 500,
     display: 400,
@@ -34,6 +35,7 @@ export const theme: Theme = {
     fire: '#fd7d24',
     blue: '#0072b0',
     red: '#dd2d51',
+    gray: '#919191',
   },
   buttons: {
     fire: {
@@ -121,6 +123,25 @@ export const theme: Theme = {
       fontWeight: 'body',
       lineHeight: 'heading',
       fontSize: 3,
+    },
+  },
+  links: {
+    nav: {
+      px: 2,
+      py: 1,
+      letterSpacing: '0.2em',
+      width: '130px',
+      height: '100%',
+      textAlign: 'center',
+      color: 'black',
+      '&.home:hover': {
+        backgroundColor: 'gray',
+        color: 'white',
+      },
+      '&.home.selected': {
+        backgroundColor: 'gray',
+        color: 'white',
+      },
     },
   },
 };

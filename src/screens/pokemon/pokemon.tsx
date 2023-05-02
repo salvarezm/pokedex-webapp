@@ -34,6 +34,10 @@ export function Pokemon() {
   });
 
   useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  useEffect(() => {
     const idEvolutionChain2 = speciesData?.evolution_chain?.url
       ?.split('/')
       ?.reverse();

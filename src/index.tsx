@@ -1,12 +1,14 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import { RouterProvider } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { Box, ThemeProvider } from 'theme-ui';
 import { Provider } from 'react-redux';
 import { theme } from './shared/theme/theme';
 import { store } from './store';
-import { router } from './router';
+import { Router } from './router';
+import { Navbar } from './components/navbar/navbar';
+import { Router } from './app';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
@@ -15,25 +17,9 @@ root.render(
   <React.StrictMode>
     <Provider store={store}>
       <ThemeProvider theme={theme}>
-        <Box
-          className="pokedex_container"
-          sx={{
-            maxWidth: '1200px',
-            margin: '0 auto 50px auto',
-            backgroundColor: 'white',
-          }}
-        >
-          <Box
-            sx={{
-              maxWidth: '950px',
-              margin: '0 auto 50px auto',
-              paddingBottom: '50px',
-              backgroundColor: 'white',
-            }}
-          >
-            <RouterProvider router={router} />
-          </Box>
-        </Box>
+        <BrowserRouter>
+          <Router />
+        </BrowserRouter>
       </ThemeProvider>
     </Provider>
   </React.StrictMode>,

@@ -130,18 +130,33 @@ export const theme: Theme = {
       px: 2,
       py: 1,
       letterSpacing: '0.2em',
-      width: '130px',
-      height: '100%',
+      height: ['50px','70px'],
       textAlign: 'center',
       color: 'black',
-      '&.home:hover': {
+      fontSize: 1,
+      '&.home': {
+        borderBottom: '3px solid gray',
+      },
+      '&.home:hover, &.home.selected': {
         backgroundColor: 'gray',
         color: 'white',
       },
-      '&.home.selected': {
-        backgroundColor: 'gray',
+      '&.stack': {
+        borderBottom: '3px solid #fd7d24',
+      },
+      '&.stack:hover, &.stack.selected': {
+        backgroundColor: '#fd7d24',
         color: 'white',
       },
+      '&.about': {
+        borderBottom: '3px solid #4592c4',
+      },
+      '&.about:hover, &.about.selected': {
+        backgroundColor: '#4592c4',
+        color: 'white',
+      },
+      
+      
     },
   },
 };

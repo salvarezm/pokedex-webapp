@@ -8,7 +8,6 @@ import { theme } from './shared/theme/theme';
 import { store } from './store';
 import { Router } from './router';
 import { Navbar } from './components/navbar/navbar';
-import { Router } from './app';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,

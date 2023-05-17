@@ -9,7 +9,7 @@ export const Layout = () => {
       <Box
         className="pokedex_container"
         sx={{
-          paddingTop: '100px',
+          paddingTop: ['10px', '100px'],
           maxWidth: '1200px',
           margin: '0 auto 50px auto',
           backgroundColor: 'white',

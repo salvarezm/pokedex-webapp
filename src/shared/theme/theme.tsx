@@ -130,7 +130,7 @@ export const theme: Theme = {
       px: 2,
       py: 1,
       letterSpacing: '0.2em',
-      height: ['50px','70px'],
+      height: ['60px','70px'],
       textAlign: 'center',
       color: 'black',
       fontSize: 1,

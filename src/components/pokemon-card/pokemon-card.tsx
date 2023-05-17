@@ -32,8 +32,9 @@ export function PokemonCard({ pokemon: { name } }: PokemonCardProps) {
   return (
     <Card key={`${name}`} variant="pokecard" onClick={handlePokemonClick}>
       <Flex sx={{ flexDirection: 'column' }}>
-        <Card variant="pokeImg" sx={{ width: '205px', height: '205px' }}>
+        <Card variant="pokeImg" sx={{ width: ['100px', '205px'], height: ['100px', '205px'] }}>
           <img
+            style={{width: '100%', height: '100%'}}
             src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${idImage}.png`}
           />
         </Card>

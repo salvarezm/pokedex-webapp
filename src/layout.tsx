@@ -19,6 +19,7 @@ export const Layout = () => {
           sx={{
             maxWidth: '950px',
             margin: '0 auto 50px auto',
+            padding: '32px',
             paddingBottom: '50px',
             backgroundColor: 'white',
           }}

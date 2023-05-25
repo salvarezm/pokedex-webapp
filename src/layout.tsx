@@ -10,17 +10,18 @@ export const Layout = () => {
         className="pokedex_container"
         sx={{
           paddingTop: ['10px', '100px'],
+          height: '100vh',
           maxWidth: '1200px',
-          margin: '0 auto 50px auto',
+          margin: '0 auto 0 auto',
           backgroundColor: 'white',
         }}
       >
         <Box
           sx={{
             maxWidth: '950px',
-            margin: '0 auto 50px auto',
-            padding: '32px',
-            paddingBottom: '50px',
+            margin: '0 auto 0 auto',
+            padding: ['8px', '32px'],
+            paddingBottom: ['70px', '50px'],
             backgroundColor: 'white',
           }}
         >

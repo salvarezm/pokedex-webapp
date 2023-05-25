@@ -71,9 +71,7 @@ export function Pokemon() {
   return (
     <>
       {/* header */}
-      <Flex sx={{ flexDirection: 'row', justifyContent: 'center' }}>
-        <Text variant="heading">{pokemonName}</Text>
-      </Flex>
+      <Text variant="text.heading">{pokemonName}</Text>
 
       <Flex sx={{ flexDirection: 'row', gap: '16px' }}>
         {/* first section */}

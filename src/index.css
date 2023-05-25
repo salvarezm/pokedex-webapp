@@ -8,6 +8,10 @@ body {
   background-image: url('./assets/images/body_bg.png');
 }
 
+#root {
+  min-height: 100vh;
+}
+
 .pokedex_container {
   background-image: url('./assets/images/container_bg.png');
 }

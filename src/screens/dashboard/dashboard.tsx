@@ -41,9 +41,7 @@ export function Dashboard() {
 
   return (
     <>
-      <Text variant="text.heading" sx={{ p: '28px' }}>
-        Pokedex
-      </Text>
+      <Text variant="text.heading">Pokedex</Text>
       <Flex
         sx={{
           flexDirection: 'row',

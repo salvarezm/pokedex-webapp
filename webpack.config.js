@@ -13,11 +13,8 @@ module.exports = {
         exclude: /node_modules/,
       },
       {
-        test: /\.(png|jpe?g|gif)$/i,
-        loader: 'file-loader',
-        options: {
-          outputPath: 'images',
-        },
+        test: /\.jpg/,
+        type: 'asset/resource',
       },
       {
         test: /\.css$/i,
@@ -31,6 +28,7 @@ module.exports = {
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
+    publicPath: '/',
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -48,5 +46,6 @@ module.exports = {
       directory: path.join(__dirname, 'build'),
     },
     port: 3000,
+    historyApiFallback: true,
   },
 };

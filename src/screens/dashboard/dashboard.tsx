@@ -1,6 +1,6 @@
 import React from 'react';
 import { useCallback, useEffect, useState } from 'react';
-import { Button, Flex, Spinner, Text } from 'theme-ui';
+import { Button, Flex, Grid, Spinner, Text } from 'theme-ui';
 import { useGetPokemonsByQuery } from '../../services/pokemon-api';
 import { PokemonCard } from '../../components/pokemon-card/pokemon-card';
 
@@ -42,23 +42,21 @@ export function Dashboard() {
   return (
     <>
       <Text variant="text.heading">Pokedex</Text>
-      <Flex
+      <Grid
         sx={{
-          flexDirection: 'row',
-          justifyContent: 'center',
+          gridTemplateColumns: ['repeat(3, 1fr)', 'repeat(4, 1fr)'],
           gap: '8px',
-          flexWrap: 'wrap',
         }}
       >
         {data?.results.map((pokemon) => (
           <PokemonCard key={pokemon.name} pokemon={pokemon} />
         ))}
-        <Flex>
-          {limit === POKEMON_BACH && (
-            <Button onClick={loadMore}>Cargar mas pokemon</Button>
-          )}
-          {limit !== POKEMON_BACH && <Spinner />}
-        </Flex>
+      </Grid>
+      <Flex sx={{ justifyContent: 'center', marginTop: '32px' }}>
+        {limit === POKEMON_BACH && (
+          <Button onClick={loadMore}>Cargar mas pokemon</Button>
+        )}
+        {limit !== POKEMON_BACH && <Spinner />}
       </Flex>
     </>
   );

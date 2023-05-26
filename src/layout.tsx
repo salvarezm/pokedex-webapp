@@ -10,7 +10,7 @@ export const Layout = () => {
         className="pokedex_container"
         sx={{
           paddingTop: ['10px', '100px'],
-          height: '100vh',
+          minHeight: '100vh',
           maxWidth: '1200px',
           margin: '0 auto 0 auto',
           backgroundColor: 'white',

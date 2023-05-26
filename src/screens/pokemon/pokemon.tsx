@@ -73,7 +73,7 @@ export function Pokemon() {
       {/* header */}
       <Text variant="text.heading">{pokemonName}</Text>
 
-      <Flex sx={{ flexDirection: 'row', gap: '16px' }}>
+      <Flex sx={{ flexDirection: ['column', 'row'], gap: '16px' }}>
         {/* first section */}
         <Flex sx={{ flexDirection: 'column', width: '100%', gap: '16px' }}>
           <Card variant="pokeImg">

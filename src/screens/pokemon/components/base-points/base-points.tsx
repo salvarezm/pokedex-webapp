@@ -1,6 +1,7 @@
 /** @jsxImportSource theme-ui */
 import React from 'react';
 import { getColor, lighten } from '@theme-ui/color';
+import { useBreakpointIndex } from '@theme-ui/match-media';
 import { Card, Text, Flex, ThemeUICSSObject } from 'theme-ui';
 import { theme } from '../../../../shared/theme';
 
@@ -15,7 +16,7 @@ const liStyle: ThemeUICSSObject = {
   borderColor: lighten('gray', 0.1),
   height: '8px',
   listStyle: 'none',
-  width: '60px',
+  width: ['40px', '60px'],
   zIndex: 3,
 };
 
@@ -28,6 +29,7 @@ basePointsMap.set('special-defense', 'S. DEF');
 basePointsMap.set('speed', 'SPD');
 
 export function BasePoints({ stats = [] }: BasePointsProps) {
+  const isMobile = useBreakpointIndex() === 0;
   return (
     <Card
       variant="pokeBasePoints"
@@ -51,7 +53,7 @@ export function BasePoints({ stats = [] }: BasePointsProps) {
                   padding: 0,
                   position: 'relative',
                   backgroundColor: getColor(theme, 'primary'),
-                  width: '60px',
+                  width: isMobile ? '40px' : '60px',
                 }}
               >
                 <li

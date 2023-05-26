@@ -116,7 +116,7 @@ export const theme: Theme = {
       fontFamily: 'heading',
       fontWeight: 'heading',
       lineHeight: 'heading',
-      fontSize: 5,
+      fontSize: [3, 5],
     },
     labelHeading: {
       fontFamily: 'heading',

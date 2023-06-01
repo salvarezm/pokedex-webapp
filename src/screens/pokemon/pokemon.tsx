@@ -34,7 +34,20 @@ export function Pokemon() {
   });
 
   useEffect(() => {
-    window.scrollTo(0, 0);
+    let scrollPos =
+      window.pageYOffset ||
+      document.documentElement.scrollTop ||
+      document.body.scrollTop;
+
+    // seems like the author of linked code source had a logic bug here
+    // if you need to apply this, probably you will want to check scrollPos > 1
+
+    // I keep the comment above - although it is wrong. You should
+    // not scroll, once the user already interacted with the page.
+    // For further information, see the linked article below.
+    if (scrollPos < 1) {
+      window.scrollTo(0, 1);
+    }
   }, []);
 
   useEffect(() => {

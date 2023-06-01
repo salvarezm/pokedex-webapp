@@ -28,6 +28,7 @@ export const pokemonApi = createApi({
 // auto-generated based on the defined endpoints
 export const {
   useGetPokemonsByQuery,
+  useLazyGetPokemonsByQuery,
   useGetPokemonByNameQuery,
   useGetPokemonSpeciesQuery,
   useGetEvolutionChainQuery,

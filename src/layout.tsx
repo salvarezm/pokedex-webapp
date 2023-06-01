@@ -1,10 +1,11 @@
 import { Box } from 'theme-ui';
 import { Navbar } from './components/navbar/navbar';
-import { Outlet } from 'react-router-dom';
+import { Outlet, ScrollRestoration } from 'react-router-dom';
 
 export const Layout = () => {
   return (
     <>
+      <ScrollRestoration />
       <Navbar />
       <Box
         className="pokedex_container"

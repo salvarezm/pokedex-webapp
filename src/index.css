@@ -16,6 +16,10 @@ body {
   background-image: url('./assets/images/container_bg.png');
 }
 
+.body_gray_bg {
+  background-image: url('./assets/images/body_gray_bg.png');
+}
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

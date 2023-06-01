@@ -1,7 +1,8 @@
 import React from 'react';
-import { Flex } from 'theme-ui';
-import { MdArrowForwardIos } from 'react-icons/md';
+import { Card, Flex } from 'theme-ui';
+import { MdArrowForwardIos, MdKeyboardArrowDown } from 'react-icons/md';
 import { PokemonCard } from '../../../../components/pokemon-card/pokemon-card';
+import { useBreakpointIndex } from '@theme-ui/match-media';
 
 interface EvolutionChainProps {
   chain?: Chain;
@@ -20,6 +21,7 @@ function getPokemonChain(chain: Chain) {
 }
 
 export function EvolutionChain({ chain }: EvolutionChainProps) {
+  const isMobile = useBreakpointIndex() === 0;
   if (!chain) {
     return null;
   }
@@ -27,13 +29,27 @@ export function EvolutionChain({ chain }: EvolutionChainProps) {
   const pokemonChain = getPokemonChain(chain);
 
   return (
-    <Flex sx={{ justifyContent: 'center', width: '100%' }}>
-      {pokemonChain.map((pokemon, index) => (
-        <Flex key={pokemon} sx={{ alignItems: 'center' }}>
-          <PokemonCard pokemon={{ name: pokemon }} />
-          {index < pokemonChain.length - 1 && <MdArrowForwardIos size={52} />}
-        </Flex>
-      ))}
-    </Flex>
+    <Card className="body_gray_bg">
+      <Flex
+        sx={{
+          justifyContent: 'center',
+          alignItems: 'center',
+          width: '100%',
+          flexDirection: isMobile ? 'column' : 'row',
+        }}
+      >
+        {pokemonChain.map((pokemon, index) => (
+          <>
+            <PokemonCard pokemon={{ name: pokemon }} />
+            {index < pokemonChain.length - 1 &&
+              (isMobile ? (
+                <MdKeyboardArrowDown size={52} />
+              ) : (
+                <MdArrowForwardIos size={52} />
+              ))}
+          </>
+        ))}
+      </Flex>
+    </Card>
   );
 }

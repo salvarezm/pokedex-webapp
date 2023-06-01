@@ -1,14 +1,40 @@
 import React from 'react';
 import { useCallback, useEffect, useState } from 'react';
 import { Button, Flex, Grid, Spinner, Text } from 'theme-ui';
-import { useGetPokemonsByQuery } from '../../services/pokemon-api';
+import {
+  useGetPokemonsByQuery,
+  useLazyGetPokemonsByQuery,
+} from '../../services/pokemon-api';
 import { PokemonCard } from '../../components/pokemon-card/pokemon-card';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  dashboardSelector,
+  actions as dashboardActions,
+} from './dashboard-slice';
 
 export function Dashboard() {
   const POKEMON_BACH = 20;
-  const [limit, setLimit] = useState(POKEMON_BACH);
+  const dispatch = useDispatch();
+  const { pokemons, pokemonsLimit } = useSelector(dashboardSelector);
 
-  const { data, isLoading } = useGetPokemonsByQuery({ limit });
+  const [lazyGetPokemons, { data, isLoading }] = useLazyGetPokemonsByQuery();
+
+  //trigger getPokemonsByQuery
+  useEffect(() => {
+    console.log('pokemonsLimit', pokemonsLimit);
+    lazyGetPokemons({ limit: pokemonsLimit });
+  }, [pokemonsLimit]);
+
+  //store pokemon data in store
+  useEffect(() => {
+    if (data) {
+      dispatch(
+        dashboardActions.setPokemons({
+          pokemonList: data?.results,
+        }),
+      );
+    }
+  }, [data]);
 
   const scrollPokemonDashboard = useCallback(() => {
     // Get the distance scrolled from the top of the page
@@ -22,15 +48,15 @@ export function Dashboard() {
     // If the user has scrolled to the bottom of the page
     if (scrollTop + window.innerHeight >= scrollHeight) {
       // Load the next batch of items
-      !isLoading && setLimit((prev) => prev + 20);
+      !isLoading && dispatch(dashboardActions.setLimit(pokemonsLimit + 20));
     }
-  }, [setLimit, isLoading]);
+  }, [pokemonsLimit, isLoading]);
 
   const loadMore = useCallback(() => {
-    setLimit((prev) => prev + 20);
+    dispatch(dashboardActions.setLimit(pokemonsLimit + 20));
     // Add a scroll event listener to the window
     window.addEventListener('scroll', scrollPokemonDashboard);
-  }, [setLimit, scrollPokemonDashboard]);
+  }, [pokemonsLimit, scrollPokemonDashboard]);
 
   useEffect(
     () => () => {
@@ -48,15 +74,15 @@ export function Dashboard() {
           gap: '8px',
         }}
       >
-        {data?.results.map((pokemon) => (
+        {pokemons?.pokemonList.map((pokemon) => (
           <PokemonCard key={pokemon.name} pokemon={pokemon} />
         ))}
       </Grid>
       <Flex sx={{ justifyContent: 'center', marginTop: '32px' }}>
-        {limit === POKEMON_BACH && (
+        {pokemonsLimit === POKEMON_BACH && (
           <Button onClick={loadMore}>Cargar mas pokemon</Button>
         )}
-        {limit !== POKEMON_BACH && <Spinner />}
+        {pokemonsLimit !== POKEMON_BACH && <Spinner />}
       </Flex>
     </>
   );

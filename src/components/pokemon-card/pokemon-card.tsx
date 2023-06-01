@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Badge, Box, Card, Flex, Text } from 'theme-ui';
 import { useNavigate } from 'react-router-dom';
 import { useGetPokemonByNameQuery } from '../../services/pokemon-api';
+import { useBreakpointIndex } from '@theme-ui/match-media';
 
 export interface PokemonCardProps {
   pokemon: PokemonListResult;
@@ -10,6 +11,7 @@ export interface PokemonCardProps {
 export function PokemonCard({ pokemon: { name } }: PokemonCardProps) {
   const { data } = useGetPokemonByNameQuery(name);
   const [idImage, setIdImage] = useState('');
+  const isMobile = useBreakpointIndex() === 0;
 
   const navigate = useNavigate();
 
@@ -32,10 +34,7 @@ export function PokemonCard({ pokemon: { name } }: PokemonCardProps) {
   return (
     <Card key={`${name}`} variant="pokecard" onClick={handlePokemonClick}>
       <Flex sx={{ flexDirection: 'column' }}>
-        <Card
-          variant="pokeImg"
-          sx={{ width: ['100px', '205px'], height: ['100px', '205px'] }}
-        >
+        <Card variant="pokeImg" sx={{ width: '100%', minHeight: '100px' }}>
           <img
             style={{ width: '100%', height: '100%' }}
             src={`https://assets.pokemon.com/assets/cms2/img/pokedex/detail/${idImage}.png`}
